@@ -89,7 +89,7 @@ export default class Presentation extends React.Component {
                     <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
-                            textSize={30}
+                            textSize='1rem'
                             source={examples.presentation} />
                     </Slide>
                     <Slide {...slideStyle}>
@@ -142,7 +142,7 @@ export default class Presentation extends React.Component {
                     <Slide {...slideStyle}>
                         <Layout>
                             <Fill>
-                                <Image height='800' src={images.pic1} />
+                                <Image height='30rem' src={images.pic1} />
                             </Fill>
                         </Layout>
                     </Slide>
@@ -178,13 +178,13 @@ export default class Presentation extends React.Component {
                         </List>
                     </Slide>
                     <Slide {...slideStyle}>
-                        <Image width='1200' src={images.problemScreeshot} />
+                        <Image width='40rem' src={images.problemScreeshot} />
                     </Slide>
                             <Slide {...slideStyle}>
                         <Heading size={4}>Композиция и инкапсуляция</Heading>
                     </Slide>
                     <Slide {...slideStyle}>
-                        <Image height='800' src={images.pic2} />
+                        <Image height='30rem' src={images.pic2} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <CodePane
@@ -199,26 +199,26 @@ export default class Presentation extends React.Component {
                             source={examples.simpleReducer} />
                     </Slide>
                     <Slide {...slideStyle}>
-                        <Image height='800' src={images.pic3} />
+                        <Image height='30rem' src={images.pic3} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <Layout>
                             <Fill style={{ margin: 20 }}>
                                 <CodePane
                                     lang='js'
-                                    textSize={30}
+                                    textSize='1rem'
                                     source={examples.composedReducers} />
                             </Fill>
                             <Fill style={{ margin: 20 }}>
                                 <CodePane
                                     lang='js'
-                                    textSize={30}
+                                    textSize='1rem'
                                     source={examples.composedView} />
                             </Fill>
                         </Layout>
                     </Slide>
                     <Slide {...slideStyle}>
-                        <Image height='800' src={images.pic4} />
+                        <Image height='30rem' src={images.pic4} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <Heading size={4}>Долгоживущие транзакции</Heading>
@@ -252,7 +252,7 @@ export default class Presentation extends React.Component {
                     <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
-                            textSize={40}
+                            textSize='1.3rem'
                             source={examples.sagaPseudoCode} />
                     </Slide>
                     <Slide {...slideStyle}>
@@ -261,13 +261,13 @@ export default class Presentation extends React.Component {
                     <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
-                            textSize={40}
+                            textSize='1.3rem'
                             source={examples.plainSagaCode} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
-                            textSize={40}
+                            textSize='1.3rem'
                             source={examples.sagaRunningCode} />
                     </Slide>
                     <Slide {...slideStyle}>
@@ -290,13 +290,13 @@ export default class Presentation extends React.Component {
                             <Fill style={{ margin: 20 }}>
                                 <CodePane
                                     lang='js'
-                                    textSize={25}
+                                    textSize='0.9rem'
                                     source={examples.reelmProduceEffect} />
                             </Fill>
                             <Fill style={{ margin: 20 }}>
                                 <CodePane
                                     lang='js'
-                                    textSize={25}
+                                    textSize='0.9rem'
                                     source={examples.reelmHandleEffect} />
                             </Fill>
                         </Layout>
