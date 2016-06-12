@@ -5,15 +5,23 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'source-map',
-  entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    'babel-polyfill',
-    './index'
-  ],
+  entry: {
+    'wsd-index': [
+        'webpack-dev-server/client?http://localhost:8080',
+        'webpack/hot/only-dev-server',
+        'babel-polyfill',
+        './wsd-index'
+    ],
+    'konfur-index': [
+        'webpack-dev-server/client?http://localhost:8080',
+        'webpack/hot/only-dev-server',
+        'babel-polyfill',
+        './konfur-index'
+    ]
+  },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: '/dist/'
   },
   plugins: [

@@ -5,15 +5,19 @@ var webpack = require("webpack");
 
 module.exports = {
   entry: {
-    index: [
-        "babel-polyfill",
-        "./index"
+    'wsd-index': [
+        'babel-polyfill',
+        './wsd-index'
+    ],
+    'konfur-index': [
+        'babel-polyfill',
+        './konfur-index'
     ]
   },
   output: {
     path: path.join(__dirname, "build", "dist"),
     filename: "[name].js",
-    publicPath: "//reelm.github.io/wsd-2016-slides/dist/"
+    publicPath: "/dist/"
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -29,12 +33,19 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [{
+    loaders: [
+    {
+      test: /\.js$/,
+      include: /code\-examples/,
+      loaders: ['raw-loader'],
+    },
+    {
       test: /\.md$/,
       loader: "html-loader!markdown-loader?gfm=false"
-    }, {
+    },
+    {
       test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
+      exclude: /(node_modules)|(code\-examples)/,
       loader: "babel-loader",
       query: {
         presets: ['es2015', 'react', 'stage-0']

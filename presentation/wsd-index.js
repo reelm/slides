@@ -70,7 +70,6 @@ const examples = {
     reelmHandleEffect: require('../code-examples/reelm-handle-effect.js'),
 };
 
-
 export default class Presentation extends React.Component {
     render() {
         return (
@@ -79,10 +78,6 @@ export default class Presentation extends React.Component {
                     <Slide {...slideStyle}>
                         <Heading size={5}>Готовим бизнес-лапшу</Heading>
                         <Heading size={5}>на стеке React и Redux</Heading>
-                    </Slide>
-                    <Slide {...slideStyle}>
-                        <Image width='5.5em' height='5.5em' src={images.js} />
-                        <Heading size={5}>JavaScript</Heading>
                     </Slide>
                     <Slide {...slideStyle}>
                         <Image width='5.5em' height='5em' src={images.react} />
@@ -185,7 +180,7 @@ export default class Presentation extends React.Component {
                     <Slide {...slideStyle}>
                         <Image width='1200' src={images.problemScreeshot} />
                     </Slide>
-                    <Slide {...slideStyle}>
+                            <Slide {...slideStyle}>
                         <Heading size={4}>Композиция и инкапсуляция</Heading>
                     </Slide>
                     <Slide {...slideStyle}>

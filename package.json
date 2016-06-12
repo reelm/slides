@@ -5,16 +5,23 @@
   "main": "",
   "scripts": {
     "clean": "rimraf build",
-    "clean-portable": "rimraf build-portable wsd-2016-slides-portable.zip",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js",
-    "build-portable": "cross-env NODE_ENV=production webpack --config webpack.config.production.js --output-public-path=dist/ --output-path=build-portable/dist/ && copyfiles index.html build-portable && node scripts/zip-folder.js build-portable wsd-2016-slides-portable.zip",
+    "clean-portable": "rimraf build-portable wsd-2016-slides-portable.zip konfur-2016-slides-portable.zip",
     "lint": "eslint --ext .js,.jsx presentation",
     "start": "cross-env NODE_ENV=development webpack-dev-server",
-    "publish": "npm run clean && npm run clean-portable && npm run build && npm run build-portable && copyfiles index.html build && copyfiles wsd-2016-slides-portable.zip build && cd build && git init && git commit --allow-empty -m \"update slides\" && git checkout -b gh-pages && git add . && git commit -am \"update slides\" && git push git@github.com:reelm/wsd-2016-slides.git gh-pages --force",
-    "konfur:publish": "npm run clean && npm run clean-portable && npm run build && npm run build-portable && copyfiles index.html build && copyfiles wsd-2016-slides-portable.zip build && cd build && git init && git commit --allow-empty -m \"update slides\" && git checkout -b gh-pages && git add . && git commit -am \"update slides\" && git push git@github.com:reelm/konfur-2016-slides.git gh-pages --force"
+    "wsd:build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js --output-public-path=//reelm.github.io/wsd-2016-slides/dist/",
+    "konfur:build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js --output-public-path=//reelm.github.io/konfur-2016-slides/dist/",
+
+    "wsd:build-portable": "cross-env NODE_ENV=production webpack --config webpack.config.production.js --output-public-path=dist/ --output-path=build-portable/dist/ && ncp wsd-index.html build-portable/index.html && node scripts/zip-folder.js build-portable wsd-2016-slides-portable.zip",
+    "konfur:build-portable": "cross-env NODE_ENV=production webpack --config webpack.config.production.js --output-public-path=dist/ --output-path=build-portable/dist/ && ncp konfur-index.html build-portable/index.html && node scripts/zip-folder.js build-portable konfur-2016-slides-portable.zip",
+
+    "wsd:publish": "npm run clean && npm run clean-portable && npm run wsd:build && npm run wsd:build-portable && ncp wsd-index.html build/index.html && ncp wsd-2016-slides-portable.zip build/wsd-2016-slides.zip && cd build && git init && git commit --allow-empty -m \"update slides\" && git checkout -b gh-pages && git add . && git commit -am \"update slides\" && git push git@github.com:reelm/wsd-2016-slides.git gh-pages --force",
+    "konfur:publish": "npm run clean && npm run clean-portable && npm run konfur:build && npm run konfur:build-portable && ncp konfur-index.html build/index.html && ncp konfur-2016-slides-portable.zip build//konfur-2016-slides.zip && cd build && git init && git commit --allow-empty -m \"update slides\" && git checkout -b gh-pages && git add . && git commit -am \"update slides\" && git push git@github.com:reelm/konfur-2016-slides.git gh-pages --force",
+
+    "publish": "npm run wsd:publish && npm run konfur:publish"
   },
   "author": "tihonove",
   "dependencies": {
+    "archiver": "^1.0.0",
     "autoprefixer-core": "^6.0.1",
     "babel-core": "^6.9.1",
     "babel-eslint": "^6.0.4",
@@ -26,7 +33,6 @@
     "babel-preset-stage-0": "^6.5.0",
     "component-raf": "^1.2.0",
     "component-tween": "^1.2.0",
-    "copyfiles": "^0.2.1",
     "cross-env": "^1.0.8",
     "css-loader": "^0.23.1",
     "eslint": "^2.11.1",
@@ -38,6 +44,7 @@
     "lodash.memoize": "^4.1.0",
     "lodash.padstart": "^4.5.0",
     "markdown-loader": "^0.1.7",
+    "ncp": "^2.0.0",
     "normalize.css": "^4.1.1",
     "raw-loader": "^0.5.1",
     "react": "^0.14.3",
