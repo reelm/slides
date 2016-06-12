@@ -1,4 +1,4 @@
 $.showConfirmDialog()
   .then(function() {
-    doSomething();
+    pushBigRedButton();
   });

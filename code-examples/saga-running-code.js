@@ -6,4 +6,4 @@ const sagaRunner = createSagaMiddleware();
 // ...
 
 // then run the saga
-sagaRunner.run(confirmDoSomethingSaga);
+sagaRunner.run(confirmPushBigRedButtonSaga);

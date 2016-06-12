@@ -4,4 +4,4 @@ action =
   waitAction('ConfirmDialog.Confirm' or 'ConfirmDialog.Discard');
 
 if (action == 'ConfirmDialog.Confirm')
-  dispatch('DoSomething');
+  dispatch('BigRedButtonPressed');

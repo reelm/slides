@@ -1,4 +1,4 @@
 if (await $.confirmDialog()) {
-    doSomething();
+    pushBigRedButton();
 }
 

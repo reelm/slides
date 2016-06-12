@@ -1,3 +1,3 @@
 if (ConfirmDialog.Show()) {
-  DoSomething();
+  PushBigRedButton();
 }

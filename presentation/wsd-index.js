@@ -68,6 +68,9 @@ const examples = {
     sagaInReelm: require('../code-examples/saga-in-reelm.js'),
     reelmProduceEffect: require('../code-examples/reelm-produce-effect.js'),
     reelmHandleEffect: require('../code-examples/reelm-handle-effect.js'),
+    tryCatchInReelm: require('../code-examples/try-catch-in-reelm.js'),
+    reelmProduceApiEffect: require('../code-examples/reelm-produce-api-effect.js'),
+    reelmHandleApiEffect: require('../code-examples/reelm-handle-api-effect.js'),
 };
 
 export default class Presentation extends React.Component {
@@ -180,7 +183,17 @@ export default class Presentation extends React.Component {
                     <Slide {...slideStyle}>
                         <Image width='40rem' src={images.problemScreeshot} />
                     </Slide>
-                            <Slide {...slideStyle}>
+                    <Slide {...slideStyle}>
+                        <Heading size={4}>Reelm</Heading>
+                    </Slide>
+                    <Slide {...slideStyle}>
+                        <List>
+                            <ListItem>Композиция и инкапсуляция</ListItem>
+                            <ListItem>Долгоживущие транзакции</ListItem>
+                            <ListItem>Управление побочными эффектами</ListItem>
+                        </List>
+                    </Slide>
+                    <Slide {...slideStyle}>
                         <Heading size={4}>Композиция и инкапсуляция</Heading>
                     </Slide>
                     <Slide {...slideStyle}>
@@ -222,9 +235,6 @@ export default class Presentation extends React.Component {
                     </Slide>
                     <Slide {...slideStyle}>
                         <Heading size={4}>Долгоживущие транзакции</Heading>
-                    </Slide>
-                    <Slide {...slideStyle}>
-                        <Heading size={4}>Проблема окна подтверждения</Heading>
                     </Slide>
                     <Slide {...slideStyle}>
                         <CodePane
@@ -271,9 +281,6 @@ export default class Presentation extends React.Component {
                             source={examples.sagaRunningCode} />
                     </Slide>
                     <Slide {...slideStyle}>
-                        <Heading size={4}>Reelm</Heading>
-                    </Slide>
-                    <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
                             textSize={30}
@@ -284,6 +291,28 @@ export default class Presentation extends React.Component {
                     </Slide>
                     <Slide {...slideStyle}>
                         <Image height='800' src={images.pic5} />
+                    </Slide>
+                    <Slide {...slideStyle}>
+                        <CodePane
+                            lang='js'
+                            textSize='1rem'
+                            source={examples.tryCatchInReelm} />
+                    </Slide>
+                    <Slide {...slideStyle}>
+                        <Layout>
+                            <Fill style={{ margin: 20 }}>
+                                <CodePane
+                                    lang='js'
+                                    textSize='0.9rem'
+                                    source={examples.reelmProduceApiEffect} />
+                            </Fill>
+                            <Fill style={{ margin: 20 }}>
+                                <CodePane
+                                    lang='js'
+                                    textSize='0.9rem'
+                                    source={examples.reelmHandleApiEffect} />
+                            </Fill>
+                        </Layout>
                     </Slide>
                     <Slide {...slideStyle}>
                         <Layout>
