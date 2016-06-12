@@ -1,0 +1,12 @@
+{
+    "extends": [
+        "skbkontur-retail",
+    ],
+    "globals": {
+        "ait": false,
+        "done": false,
+        "fail": false,
+        "jasmine": false,
+        "spyOn": false
+    }
+}

@@ -1,0 +1,4 @@
+$.showConfirmDialog()
+  .then(function() {
+    doSomething();
+  });
