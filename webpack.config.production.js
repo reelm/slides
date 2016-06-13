@@ -7,10 +7,12 @@ module.exports = {
   entry: {
     'wsd-index': [
         'babel-polyfill',
+        './vendor/prism-bundle.js',
         './wsd-index'
     ],
     'konfur-index': [
         'babel-polyfill',
+        './vendor/prism-bundle.js',
         './konfur-index'
     ]
   },
@@ -50,15 +52,14 @@ module.exports = {
       query: {
         presets: ['es2015', 'react', 'stage-0']
       }
-    }, {
+    },
+    {
       test: /\.css$/,
-      loader: "style-loader!css-loader"
-    }, {
-      test: /\.(png|jpg|gif)$/,
+      loaders: ['style-loader', 'css-loader'],
+    },
+    {
+      test: /\.(png|jpg|gif|svg|woff|eot|ttf)$/,
       loader: "url-loader?limit=8192"
-    }, {
-      test: /\.svg$/,
-      loader: "url?limit=10000&mimetype=image/svg+xml"
     }]
   }
 };

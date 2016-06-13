@@ -10,12 +10,14 @@ module.exports = {
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server',
         'babel-polyfill',
+        './vendor/prism-bundle.js',
         './wsd-index'
     ],
     'konfur-index': [
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server',
         'babel-polyfill',
+        './vendor/prism-bundle.js',
         './konfur-index'
     ]
   },
@@ -45,25 +47,14 @@ module.exports = {
     },
     {
       test: /\.css$/,
-      loaders: ['style', 'raw'],
+      loaders: ['style-loader', 'css-loader'],
       include: __dirname
-    }, {
-      test: /\.svg$/,
-      loader: 'url?limit=10000&mimetype=image/svg+xml',
-      include: path.join(__dirname, 'assets')
-    }, {
-      test: /\.png$/,
-      loader: 'url-loader?mimetype=image/png',
-      include: path.join(__dirname, 'assets')
-    }, {
-      test: /\.gif$/,
-      loader: 'url-loader?mimetype=image/gif',
-      include: path.join(__dirname, 'assets')
-    }, {
-      test: /\.jpg$/,
-      loader: 'url-loader?mimetype=image/jpg',
-      include: path.join(__dirname, 'assets')
-    }]
+    },
+    {
+      test: /\.(png|jpg|gif|svg|woff|eot|ttf)$/,
+      loader: "url-loader?limit=8192"
+    }
+    ]
   },
   devServer: {
     contentBase: __dirname,

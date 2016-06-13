@@ -21,11 +21,12 @@ import {
     Text,
 } from 'spectacle';
 
+import 'normalize.css';
+import '../theme/index.css';
+
 import preloader from 'spectacle/lib/utils/preloader';
 import createTheme from '../theme';
 
-import 'normalize.css';
-import '../theme/index.css';
 
 const images = {
     react: require('../assets/react.png'),
