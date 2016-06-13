@@ -117,7 +117,10 @@ export default class Presentation extends React.Component {
                         <Heading size={4}>React {Chars.mdash} это как php,<br /> только javascript</Heading>
                     </Slide>
                     <Slide {...slideStyle}>
-                        <Heading size={4}>Virtual DOM</Heading>
+                        <Heading size={4}>Виртуальный DOM</Heading>
+                    </Slide>
+                    <Slide {...slideStyle}>
+                        <Heading size={4}>Отделение логики от представления</Heading>
                     </Slide>
                     <Slide {...slideStyle}>
                         <Layout>
@@ -150,7 +153,7 @@ export default class Presentation extends React.Component {
                         </Layout>
                     </Slide>
                     <Slide {...slideStyle} align='center center'>
-                        <Text>Библиотеки для работы с внейшним состоянием:</Text>
+                        <Text>Библиотеки для работы с внешним состоянием:</Text>
                         <List padding='0 0 0 200px'>
                             <ListItem>Flux-подобные</ListItem>
                             <ListItem>На основе подписок</ListItem>
