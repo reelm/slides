@@ -1,8 +1,8 @@
-import React from "react";
-import { render } from "react-dom";
+import React from 'react';
+import { render } from 'react-dom';
 
-import Presentation from "./presentation/konfur-index";
+import Presentation from './presentation/';
 
 import './theme/prism-theme.css';
 
-render(<Presentation/>, document.getElementById("root"));
+render(<Presentation isWsd={false}/>, document.getElementById('root'));

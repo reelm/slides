@@ -76,13 +76,30 @@ const examples = {
 
 export default class Presentation extends React.Component {
     render() {
+        const { isWsd } = this.props;
+
         return (
             <Spectacle theme={theme}>
                 <Deck transition={['slide']} transitionDuration={700} progress='pacman'>
-                    <Slide {...slideStyle}>
-                        <Heading size={5}>Готовим бизнес-лапшу</Heading>
-                        <Heading size={5}>на стеке React и Redux</Heading>
-                    </Slide>
+                    {isWsd
+                        ?
+                        (<Slide {...slideStyle}>
+                            <Heading size={5}>Готовим бизнес-лапшу</Heading>
+                            <Heading size={5}>на стеке React и Redux</Heading>
+                        </Slide>)
+                        :
+                        (<Slide {...slideStyle}>
+                            <Heading size={5}>Как написать сложное</Heading>
+                            <Heading size={5}>singe-page приложение</Heading>
+                            <Heading size={5}>с кучей бизнес лапши</Heading>
+                        </Slide>)}
+                    {isWsd
+                        ? null
+                        :
+                        (<Slide {...slideStyle}>
+                            <Image width='5.5em' height='5.5em' src={images.js} />
+                            <Heading size={5}>JavaScript</Heading>
+                        </Slide>)}
                     <Slide {...slideStyle}>
                         <Image width='5.5em' height='5em' src={images.react} />
                         <Heading size={4}>React</Heading>
