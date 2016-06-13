@@ -38,6 +38,10 @@ const images = {
     pic3: require('../assets/pic-3.png'),
     pic4: require('../assets/pic-4.png'),
     pic5: require('../assets/pic-5.png'),
+    pic6: require('../assets/pic-6.png'),
+    pic7: require('../assets/pic-7.png'),
+    pic8: require('../assets/pic-8.png'),
+    pic9: require('../assets/pic-9.png'),
 };
 
 preloader(images);
@@ -221,6 +225,9 @@ export default class Presentation extends React.Component {
                         <Image height='30rem' src={images.pic2} />
                     </Slide>
                     <Slide {...slideStyle}>
+                        <Image height='30rem' src={images.pic9} />
+                    </Slide>
+                    <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
                             textSize={40}
@@ -231,6 +238,9 @@ export default class Presentation extends React.Component {
                             lang='js'
                             textSize={40}
                             source={examples.simpleReducer} />
+                    </Slide>
+                    <Slide {...slideStyle}>
+                        <Image height='30rem' src={images.pic8} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <Image height='30rem' src={images.pic3} />
@@ -318,6 +328,12 @@ export default class Presentation extends React.Component {
                             lang='js'
                             textSize='1rem'
                             source={examples.tryCatchInReelm} />
+                    </Slide>
+                    <Slide {...slideStyle}>
+                        <Image height='800' src={images.pic7} />
+                    </Slide>
+                    <Slide {...slideStyle}>
+                        <Image height='800' src={images.pic6} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <Layout>
