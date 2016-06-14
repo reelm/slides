@@ -37,6 +37,27 @@
           transform-origin: center center;
 }
 
+
+@keyframes pacmanTopFrames {
+  0% { transform: rotateZ(0deg) }
+  100% { transform: rotateZ(-30deg) }
+}
+
+@keyframes pacmanBottomFrames {
+  0% { transform: rotateZ(0deg) }
+  100% { transform: rotateZ(30deg) }
+}
+
+@keyframes pacmanTopFramesBis {
+  0% { transform: rotateZ(0deg) }
+  100% { transform: rotateZ(-30deg) }
+}
+
+@keyframes pacmanBottomFramesBis {
+  0% { transform: rotateZ(0deg) }
+  100% { transform: rotateZ(30deg) }
+}
+
 /* Firefox */
 
 _:-moz-tree-row(hover), .spectacle-deck {

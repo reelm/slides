@@ -1,3 +1,5 @@
+// Root view
+
 import { forwardTo } from 'reelm';
 
 // ...

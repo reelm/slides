@@ -2,12 +2,13 @@
 import React from 'react';
 import {
     // Appear,
-    // Link,
+    Link,
     // Markdown,
     // BlockQuote,
     // Cite,
     // Quote,
     // Fit,
+    Code,
     CodePane,
     Deck,
     Fill,
@@ -42,6 +43,9 @@ const images = {
     pic7: require('../assets/pic-7.png'),
     pic8: require('../assets/pic-8.png'),
     pic9: require('../assets/pic-9.png'),
+    ediLogo: require('../assets/edi-logo.png'),
+    ofdLogo: require('../assets/ofd-logo.png'),
+    egaisLogo: require('../assets/egais-logo.png'),
 };
 
 preloader(images);
@@ -76,7 +80,33 @@ const examples = {
     tryCatchInReelm: require('../code-examples/try-catch-in-reelm.js'),
     reelmProduceApiEffect: require('../code-examples/reelm-produce-api-effect.js'),
     reelmHandleApiEffect: require('../code-examples/reelm-handle-api-effect.js'),
+    nestedReducerInComposition: require('../code-examples/nested-reducer-in-composition.js'),
+    nestedViewInComposition: require('../code-examples/nested-view-in-composition.js'),
 };
+
+function agenda(slideStyle) {
+    return (
+        <Slide {...slideStyle}>
+            <Heading size={5}>Агенда</Heading>
+            <List>
+                <ListItem>React & Redux</ListItem>
+                <ListItem>Как писать бизнес лапшу</ListItem>
+            </List>
+        </Slide>
+    );
+}
+
+function konturProductList() {
+    return (
+        <Slide {...slideStyle}>
+            <div style={{ display: 'inline-block', textAlign: 'left' }}>
+                <Image height='3rem' src={images.ediLogo} /> <br />
+                <Image height='3rem' src={images.ofdLogo} /> <br />
+                <Image height='3rem' src={images.egaisLogo} /> <br />
+            </div>
+        </Slide>
+    );
+}
 
 export default class Presentation extends React.Component {
     render() {
@@ -84,7 +114,7 @@ export default class Presentation extends React.Component {
 
         return (
             <Spectacle theme={theme}>
-                <Deck transition={['slide']} transitionDuration={700} progress='pacman'>
+                <Deck transition={['slide']} transitionDuration={700}>
                     {isWsd
                         ?
                         (<Slide {...slideStyle}>
@@ -97,6 +127,7 @@ export default class Presentation extends React.Component {
                             <Heading size={5}>singe-page приложение</Heading>
                             <Heading size={5}>с кучей бизнес лапши</Heading>
                         </Slide>)}
+                    {isWsd ? null : agenda()}
                     {isWsd
                         ? null
                         :
@@ -114,11 +145,14 @@ export default class Presentation extends React.Component {
                     <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
-                            textSize='1rem'
+                            textSize='0.8rem'
                             source={examples.presentation} />
+                        <Text style={{ marginTop: '1rem' }} textSize='2rem'>
+                            Spectacle: <Link href='https://github.com/FormidableLabs/spectacle'>https://github.com/FormidableLabs/spectacle</Link>
+                        </Text>
                     </Slide>
                     <Slide {...slideStyle}>
-                        <Heading size={4}>React {Chars.mdash} это как php,<br /> только javascript</Heading>
+                        <Heading size={4}>React {Chars.mdash} это как PHP,<br /> только JavaScript</Heading>
                     </Slide>
                     <Slide {...slideStyle}>
                         <Heading size={4}>Виртуальный DOM</Heading>
@@ -168,11 +202,7 @@ export default class Presentation extends React.Component {
                         <Heading size={4}>Redux</Heading>
                     </Slide>
                     <Slide {...slideStyle}>
-                        <Layout>
-                            <Fill>
-                                <Image height='30rem' src={images.pic1} />
-                            </Fill>
-                        </Layout>
+                        <Image height='30rem' src={images.pic1} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <CodePane
@@ -243,21 +273,42 @@ export default class Presentation extends React.Component {
                         <Image height='30rem' src={images.pic8} />
                     </Slide>
                     <Slide {...slideStyle}>
+                        <Image height='30rem' src={images.pic1} />
+                    </Slide>
+                    <Slide {...slideStyle}>
                         <Image height='30rem' src={images.pic3} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <Layout>
-                            <Fill style={{ margin: 20 }}>
+                            <Fill style={{ marginRight: 20 }}>
                                 <CodePane
+                                    style={{ margin: 20 }}
                                     lang='js'
-                                    textSize='1rem'
+                                    textSize='0.95rem'
                                     source={examples.composedReducers} />
                             </Fill>
-                            <Fill style={{ margin: 20 }}>
+                            <Fill>
                                 <CodePane
+                                    style={{ margin: 20 }}
                                     lang='js'
-                                    textSize='1rem'
+                                    textSize='0.95rem'
                                     source={examples.composedView} />
+                            </Fill>
+                        </Layout>
+                        <Layout>
+                            <Fill style={{ marginRight: 20 }}>
+                                <CodePane
+                                    style={{ margin: 20 }}
+                                    lang='js'
+                                    textSize='0.95rem'
+                                    source={examples.nestedReducerInComposition} />
+                            </Fill>
+                            <Fill>
+                                <CodePane
+                                    style={{ margin: 20 }}
+                                    lang='js'
+                                    textSize='0.95rem'
+                                    source={examples.nestedViewInComposition} />
                             </Fill>
                         </Layout>
                     </Slide>
@@ -321,7 +372,7 @@ export default class Presentation extends React.Component {
                         <Heading size={4}>Управление побочными эффектами</Heading>
                     </Slide>
                     <Slide {...slideStyle}>
-                        <Image height='800' src={images.pic5} />
+                        <Image height='30rem' src={images.pic5} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <CodePane
@@ -330,23 +381,23 @@ export default class Presentation extends React.Component {
                             source={examples.tryCatchInReelm} />
                     </Slide>
                     <Slide {...slideStyle}>
-                        <Image height='800' src={images.pic7} />
+                        <Image height='30rem' src={images.pic7} />
                     </Slide>
                     <Slide {...slideStyle}>
-                        <Image height='800' src={images.pic6} />
+                        <Image height='30rem' src={images.pic6} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <Layout>
                             <Fill style={{ margin: 20 }}>
                                 <CodePane
                                     lang='js'
-                                    textSize='0.9rem'
+                                    textSize='0.85rem'
                                     source={examples.reelmProduceApiEffect} />
                             </Fill>
                             <Fill style={{ margin: 20 }}>
                                 <CodePane
                                     lang='js'
-                                    textSize='0.9rem'
+                                    textSize='0.85rem'
                                     source={examples.reelmHandleApiEffect} />
                             </Fill>
                         </Layout>
@@ -356,16 +407,34 @@ export default class Presentation extends React.Component {
                             <Fill style={{ margin: 20 }}>
                                 <CodePane
                                     lang='js'
-                                    textSize='0.9rem'
+                                    textSize='0.85rem'
                                     source={examples.reelmProduceEffect} />
                             </Fill>
                             <Fill style={{ margin: 20 }}>
                                 <CodePane
                                     lang='js'
-                                    textSize='0.9rem'
+                                    textSize='0.85rem'
                                     source={examples.reelmHandleEffect} />
                             </Fill>
                         </Layout>
+                    </Slide>
+                    <Slide {...slideStyle}>
+                        <Heading size={4}>Reelm</Heading>
+                        <div style={{ textAlign: 'left', display: 'inline-block' }}>
+                            <Text lineHeight={2}>Документация: <Link href='https://reelm.github.io/ru/intro/'>https://reelm.github.io/ru/intro/</Link></Text>
+                            <Text lineHeight={2}>Слайды: {isWsd
+                                ? <Link href='https://reelm.github.io/wsd-2016-slides'>https://reelm.github.io/wsd-2016-slides</Link>
+                                : <Link href='https://reelm.github.io/konfur-2016-slides'>https://reelm.github.io/konfur-2016-slides</Link>}
+                            </Text>
+                            <Text lineHeight={2}>Исходный код: <Link href='https://github.com/tihonove/reelm'>https://github.com/tihonove/reelm</Link></Text>
+                        </div>
+                        <br />
+                        <br />
+                        <Code textSize='2rem'>npm install reelm --save</Code>
+                    </Slide>
+                    {isWsd ? null : konturProductList()}
+                    <Slide {...slideStyle}>
+                        <Heading size={4}>Спасибо за внимание</Heading>
                     </Slide>
                 </Deck>
             </Spectacle>
