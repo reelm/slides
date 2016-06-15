@@ -84,7 +84,7 @@ const examples = {
     nestedViewInComposition: require('../code-examples/nested-view-in-composition.js'),
 };
 
-function agenda(slideStyle) {
+function agenda() {
     return (
         <Slide {...slideStyle}>
             <Heading size={5}>Агенда</Heading>
@@ -108,6 +108,59 @@ function konturProductList() {
     );
 }
 
+function javaScriptLogo() {
+    return (
+        <Slide {...slideStyle}>
+            <Image width='5.5em' height='5.5em' src={images.js} />
+            <Heading size={5}>JavaScript</Heading>
+        </Slide>
+    );
+}
+
+function title(isWsd) {
+    if (isWsd) {
+        return (
+            <Slide {...slideStyle}>
+                <Heading size={5}>Готовим бизнес-лапшу</Heading>
+                <Heading size={5}>на стеке React и Redux</Heading>
+            </Slide>
+        );
+    }
+    else {
+        return (
+            <Slide {...slideStyle}>
+                <Heading size={5}>Как написать сложное</Heading>
+                <Heading size={5}>singe-page приложение</Heading>
+                <Heading size={5}>с кучей бизнес лапши</Heading>
+            </Slide>
+        );
+    }
+}
+
+function productScheme() {
+    return (
+        <Slide {...slideStyle}>
+            Картинка EDI
+        </Slide>
+    );
+}
+
+function productInterfaces1() {
+    return (
+        <Slide {...slideStyle}>
+            Картинка с интерфейсами EDI #1
+        </Slide>
+    );
+}
+
+function productInterfaces2() {
+    return (
+        <Slide {...slideStyle}>
+            Картинка с интерфейсами EDI #2
+        </Slide>
+    );
+}
+
 export default class Presentation extends React.Component {
     render() {
         const { isWsd } = this.props;
@@ -115,26 +168,12 @@ export default class Presentation extends React.Component {
         return (
             <Spectacle theme={theme}>
                 <Deck transition={['slide']} transitionDuration={700}>
-                    {isWsd
-                        ?
-                        (<Slide {...slideStyle}>
-                            <Heading size={5}>Готовим бизнес-лапшу</Heading>
-                            <Heading size={5}>на стеке React и Redux</Heading>
-                        </Slide>)
-                        :
-                        (<Slide {...slideStyle}>
-                            <Heading size={5}>Как написать сложное</Heading>
-                            <Heading size={5}>singe-page приложение</Heading>
-                            <Heading size={5}>с кучей бизнес лапши</Heading>
-                        </Slide>)}
+                    {title(isWsd)}
+                    {isWsd ? null : javaScriptLogo()}
                     {isWsd ? null : agenda()}
-                    {isWsd
-                        ? null
-                        :
-                        (<Slide {...slideStyle}>
-                            <Image width='5.5em' height='5.5em' src={images.js} />
-                            <Heading size={5}>JavaScript</Heading>
-                        </Slide>)}
+                    {isWsd ? productScheme() : null}
+                    {isWsd ? productInterfaces1() : null}
+                    {isWsd ? productInterfaces2() : null}
                     <Slide {...slideStyle}>
                         <Image width='5.5em' height='5em' src={images.react} />
                         <Heading size={4}>React</Heading>
