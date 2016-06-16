@@ -368,7 +368,7 @@ export default class Presentation extends React.Component {
                         <CodePane
                             lang='js'
                             textSize='2rem'
-                            style={{ minWidth: '35rem', maxWidth: '35rem' }}
+                            style={{ minWidth: '40rem', maxWidth: '40rem' }}
                             source={examples.ifThenPseudoCode} />
                     </Slide>
                     <Slide {...slideStyle}>
@@ -439,13 +439,13 @@ export default class Presentation extends React.Component {
                             <Fill style={{ margin: 20 }}>
                                 <CodePane
                                     lang='js'
-                                    textSize='1.1rem'
+                                    textSize='1rem'
                                     source={examples.reelmProduceApiEffect} />
                             </Fill>
                             <Fill style={{ margin: 20 }}>
                                 <CodePane
                                     lang='js'
-                                    textSize='1.1rem'
+                                    textSize='1rem'
                                     source={examples.reelmHandleApiEffect} />
                             </Fill>
                         </Layout>

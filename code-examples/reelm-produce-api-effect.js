@@ -2,8 +2,8 @@ const nestedReducer = defineReducer({})
   .on('RefreshData', perform(function* () {
     try {
 
-      const data =                     /*1*/
-        yield { type: 'RequestData' }; /*1*/
+/*1*/ const data =
+/*1*/   yield { type: 'RequestData' };
 
       yield put({ /* Success */ });
     }
