@@ -1,10 +1,7 @@
-// Root view
-
-import { forwardTo } from 'reelm';
+// 2. Root view
 
 // ...
 <PersonEditForm
   person={person}
   dispatch={forwardTo(dispatch, 'Person')}
   />
-// ...

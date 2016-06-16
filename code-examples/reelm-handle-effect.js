@@ -1,24 +1,23 @@
-import { defineReducer } from 'reelm/fluent';
-
-// ...
-
 const rootReducer = defineReducer({})
-  .scopedOver('Nested', ['nested'], nestedReducer)
-
+  .scopedOver(
+    'Nested', ['nested'], nestedReducer)
   .mapEffects(function (effect) {
     switch (effect.type) {
       case 'RequestConfirmation':
-        return call(function* () {
-          yield put({ type: 'ConfirmDialog.Show' });
-
-          const action = yield take([
-            'ConfirmDialog.Confirm',
-            'ConfirmDialog.Discard']);
-
-          return action.type === 'ConfirmDialog.Confirm';
+        return call(function* () {    /*2*/
+          yield put({                 /*2*/
+            type: 'ConfirmDialog.Show'/*2*/
+          });                         /*2*/
+                                      /*2*/
+          const action = yield take([ /*2*/
+            'ConfirmDialog.Confirm',  /*2*/
+            'ConfirmDialog.Discard'   /*2*/
+          ]);                         /*2*/
+                                      /*2*/
+          return action.type ===      /*2*/
+            'ConfirmDialog.Confirm';  /*2*/
         });
       default:
         return effect;
     }
-  })
-  // ...
+  });

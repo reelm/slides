@@ -1,13 +1,14 @@
-import { defineReducer, perform } from 'reelm/fluent';
-
-
 const nestedReducer = defineReducer({})
-  .on('ConfirmedBigRedButtonPress', perform(function* () {
+  .on('ConfirmedBigRedButtonPress',
+    perform(function* () {
       const confirmationResult =
-        yield { type: 'RequestConfirmation' };
+        yield {                       /*1*/
+          type: 'RequestConfirmation',/*1*/
+        };                            /*1*/
 
       if (confirmationResult)
-        yield put({ type: 'BigRedButtonPressed' });
+        yield put({
+          type: 'BigRedButtonPressed',
+        });
     }
-  ))
-  // ...
+  ));

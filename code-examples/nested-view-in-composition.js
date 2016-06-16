@@ -1,4 +1,4 @@
-// Nested view
+// 1. Nested view
 
 // ...
 <input value={person.firstName}
@@ -6,4 +6,3 @@
          type: 'Change',
          data: { firstName: e.target.value }
        })} />
-// ...

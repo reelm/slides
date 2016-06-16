@@ -43,6 +43,9 @@ const images = {
     pic7: require('../assets/pic-7.png'),
     pic8: require('../assets/pic-8.png'),
     pic9: require('../assets/pic-9.png'),
+    pic10: require('../assets/pic-10.png'),
+    pic11: require('../assets/pic-11.png'),
+    pic12: require('../assets/pic-12.png'),
     ediLogo: require('../assets/edi-logo.png'),
     ofdLogo: require('../assets/ofd-logo.png'),
     egaisLogo: require('../assets/egais-logo.png'),
@@ -130,7 +133,7 @@ function title(isWsd) {
         return (
             <Slide {...slideStyle}>
                 <Heading size={5}>Как написать сложное</Heading>
-                <Heading size={5}>singe-page приложение</Heading>
+                <Heading size={5}>single-page приложение</Heading>
                 <Heading size={5}>с кучей бизнес лапши</Heading>
             </Slide>
         );
@@ -140,7 +143,7 @@ function title(isWsd) {
 function productScheme() {
     return (
         <Slide {...slideStyle}>
-            Картинка EDI
+            <Image height='30rem' src={images.pic12} />
         </Slide>
     );
 }
@@ -275,7 +278,8 @@ export default class Presentation extends React.Component {
                         </List>
                     </Slide>
                     <Slide {...slideStyle}>
-                        <Image width='40rem' src={images.problemScreeshot} />
+                        <Image height='25rem' src={images.problemScreeshot} />
+                        <Link href='https://github.com/reactjs/redux/issues/1528'>https://github.com/reactjs/redux/issues/1528</Link>
                     </Slide>
                     <Slide {...slideStyle}>
                         <Heading size={4}>Reelm</Heading>
@@ -323,14 +327,14 @@ export default class Presentation extends React.Component {
                                 <CodePane
                                     style={{ margin: 20 }}
                                     lang='js'
-                                    textSize='0.95rem'
+                                    textSize='1.1rem'
                                     source={examples.composedReducers} />
                             </Fill>
                             <Fill>
                                 <CodePane
                                     style={{ margin: 20 }}
                                     lang='js'
-                                    textSize='0.95rem'
+                                    textSize='1.1rem'
                                     source={examples.composedView} />
                             </Fill>
                         </Layout>
@@ -339,14 +343,14 @@ export default class Presentation extends React.Component {
                                 <CodePane
                                     style={{ margin: 20 }}
                                     lang='js'
-                                    textSize='0.95rem'
+                                    textSize='1.1rem'
                                     source={examples.nestedReducerInComposition} />
                             </Fill>
                             <Fill>
                                 <CodePane
                                     style={{ margin: 20 }}
                                     lang='js'
-                                    textSize='0.95rem'
+                                    textSize='1.1rem'
                                     source={examples.nestedViewInComposition} />
                             </Fill>
                         </Layout>
@@ -358,23 +362,27 @@ export default class Presentation extends React.Component {
                         <Heading size={4}>Долгоживущие транзакции</Heading>
                     </Slide>
                     <Slide {...slideStyle}>
+                        <Image height='30rem' src={images.pic11} />
+                    </Slide>
+                    <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
-                            textSize={40}
-                            style={{ minWidth: 800, maxWidth: 800 }}
+                            textSize='2rem'
+                            style={{ minWidth: '35rem', maxWidth: '35rem' }}
                             source={examples.ifThenPseudoCode} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
-                            textSize={40}
-                            style={{ minWidth: 800, maxWidth: 800 }}
+                            textSize='2rem'
+                            style={{ minWidth: '35rem', maxWidth: '35rem' }}
                             source={examples.cofirmJQuery} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
-                            textSize={40}
+                            textSize='2rem'
+                            style={{ minWidth: '40rem', maxWidth: '40rem' }}
                             source={examples.jQueryAsync} />
                     </Slide>
                     <Slide {...slideStyle}>
@@ -383,28 +391,29 @@ export default class Presentation extends React.Component {
                     <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
-                            textSize='1.3rem'
+                            textSize='1.6rem'
                             source={examples.sagaPseudoCode} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <Heading size={4}>redux-saga</Heading>
+                        <Link href='http://yelouafi.github.io/redux-saga/'>http://yelouafi.github.io/redux-saga/</Link>
                     </Slide>
                     <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
-                            textSize='1.3rem'
+                            textSize='1.6rem'
                             source={examples.plainSagaCode} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
-                            textSize='1.3rem'
+                            textSize='1.6rem'
                             source={examples.sagaRunningCode} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
-                            textSize={30}
+                            textSize='1.6rem'
                             source={examples.sagaInReelm} />
                     </Slide>
                     <Slide {...slideStyle}>
@@ -416,7 +425,7 @@ export default class Presentation extends React.Component {
                     <Slide {...slideStyle}>
                         <CodePane
                             lang='js'
-                            textSize='1rem'
+                            textSize='1.6rem'
                             source={examples.tryCatchInReelm} />
                     </Slide>
                     <Slide {...slideStyle}>
@@ -430,29 +439,32 @@ export default class Presentation extends React.Component {
                             <Fill style={{ margin: 20 }}>
                                 <CodePane
                                     lang='js'
-                                    textSize='0.85rem'
+                                    textSize='1.1rem'
                                     source={examples.reelmProduceApiEffect} />
                             </Fill>
                             <Fill style={{ margin: 20 }}>
                                 <CodePane
                                     lang='js'
-                                    textSize='0.85rem'
+                                    textSize='1.1rem'
                                     source={examples.reelmHandleApiEffect} />
                             </Fill>
                         </Layout>
+                    </Slide>
+                    <Slide {...slideStyle}>
+                        <Image height='30rem' src={images.pic10} />
                     </Slide>
                     <Slide {...slideStyle}>
                         <Layout>
                             <Fill style={{ margin: 20 }}>
                                 <CodePane
                                     lang='js'
-                                    textSize='0.85rem'
+                                    textSize='1.1rem'
                                     source={examples.reelmProduceEffect} />
                             </Fill>
                             <Fill style={{ margin: 20 }}>
                                 <CodePane
                                     lang='js'
-                                    textSize='0.85rem'
+                                    textSize='1.1rem'
                                     source={examples.reelmHandleEffect} />
                             </Fill>
                         </Layout>

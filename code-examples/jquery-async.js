@@ -1,4 +1,3 @@
 if (await $.confirmDialog()) {
     pushBigRedButton();
 }
-

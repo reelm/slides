@@ -1,4 +1,4 @@
-// Nested reducer
+// 4. Nested reducer
 
 const nestedReducer = defineReducer({})
   .on('Change', (person, action) => {

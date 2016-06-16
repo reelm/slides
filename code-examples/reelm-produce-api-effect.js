@@ -1,23 +1,13 @@
-import { defineReducer, perform } from 'reelm/fluent';
-
-
 const nestedReducer = defineReducer({})
   .on('RefreshData', perform(function* () {
+    try {
 
-      yield put({ type: 'BeginRefreshData' });
+      const data =                     /*1*/
+        yield { type: 'RequestData' }; /*1*/
 
-      try {
-        const data =
-          yield { type: 'RequestData' };
-
-        yield put({ type: 'EndRefreshData', data: data });
-      }
-      catch (e) {
-        yield put({
-          type: 'FailRefreshData',
-          message: e.toString()
-        });
-      }
+      yield put({ /* Success */ });
     }
-  ))
-  // ...
+    catch (e) {
+      yield put({ /* Fail */ });
+    }
+  }));

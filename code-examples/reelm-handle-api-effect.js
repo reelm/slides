@@ -1,16 +1,17 @@
-import { defineReducer } from 'reelm/fluent';
-
-// ...
-
 const rootReducer = defineReducer({})
-  .scopedOver('Nested', ['nested'], nestedReducer)
+  .scopedOver(                          /*2*/
+    'Nested', ['nested'], nestedReducer)/*2*/
 
   .mapEffects(function (effect) {
     switch (effect.type) {
-      case 'RequestData':
-        return call(async () => await api.getData());
+
+      case 'RequestData':               /*3*/
+        return call(                    /*3*/
+          async () => await api.getData()
+        );
+
       default:
         return effect;
+
     }
-  })
-  // ...
+  });

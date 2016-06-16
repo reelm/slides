@@ -1,20 +1,15 @@
-import { defineReducer, perform } from 'reelm/fluent';
-
-
 const reducer = defineReducer({})
-  .on('RefreshData', perform(function* () {
+    .on('RefreshData', perform(function* () {
+        try {
+            const data =                                    /*1*/
+                yield call(async () => await api.getData());/*1*/
 
-      yield put({ type: 'BeginRefreshData' });
-
-      try {
-        const data =
-          yield call(async () => await api.getData());
-
-        yield put({ type: 'EndRefreshData', data: data });
-      }
-      catch (e) {
-        yield put({ type: 'FailRefreshData', message: e.toString() });
-      }
-    }
-  ))
-  // ...
+            yield put({ type: 'DataRefreshed', data });
+        }
+        catch (e) {
+            yield put({
+                type: 'FailRefreshData',
+                message: e.toString(),
+            });
+        }
+    }));

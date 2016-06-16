@@ -1,6 +1,4 @@
-// Root reducer
-
-import { defineReducer } from 'reelm/fluent';
+// 3. Root reducer
 
 const applicationReducer = defineReducer({})
   .scopedOver(
